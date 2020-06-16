@@ -44,13 +44,27 @@ cmake version 3.11.4
 ```
 https://github.com/HughNian/nmid-c.git
 
-1.client
+1.client可执行文件
 cd nmid-c/run/client
 make
 
-2.worker
+2.client动态库
+cd nmid-c/build/client
+里面有之前编译好的动态库，可以把它们都删掉，然后重新编译
+cmake ../../client
+make
+make install
+
+3.worker可执行文件
 cd nmid-c/run/worker
 make
+
+4.worker动态库
+cd nmid-c/build/worker
+里面有之前编译好的动态库，可以把它们都删掉，然后重新编译
+cmake ../../worker
+make
+make install
 
 ```
 
