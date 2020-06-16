@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libnmidclient.so.1 -o libnmidclient.so.1.2 CMakeFiles/nmidclient.dir/client.o CMakeFiles/nmidclient.dir/hash.o CMakeFiles/nmidclient.dir/rw.o -lpthread -lev -lmsgpackc -lpthread -lev -lmsgpackc 

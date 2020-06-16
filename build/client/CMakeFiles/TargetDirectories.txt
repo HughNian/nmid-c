@@ -1,0 +1,7 @@
+/home/niansong/C/libnmid/build/client/CMakeFiles/install/strip.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/install/local.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/install.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/list_install_components.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/rebuild_cache.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/edit_cache.dir
+/home/niansong/C/libnmid/build/client/CMakeFiles/nmidclient.dir

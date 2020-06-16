@@ -1,0 +1,7 @@
+/home/niansong/C/libnmid/build/worker/CMakeFiles/install/strip.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/install/local.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/install.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/list_install_components.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/rebuild_cache.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/edit_cache.dir
+/home/niansong/C/libnmid/build/worker/CMakeFiles/nmidworker.dir

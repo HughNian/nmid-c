@@ -1,0 +1,2 @@
+all:
+	gcc -o client2 client2.c -lpthread -lev -lmsgpackc -lnmidclient -g

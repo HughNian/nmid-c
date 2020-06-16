@@ -1,0 +1,2 @@
+all:
+	gcc -o worker2 worker2.c -lpthread -lev -lmsgpackc -lnmidworker -g

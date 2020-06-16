@@ -1,0 +1,7 @@
+#include "nmidworker/common.h"
+#include "nmidworker/worker.h"
+#include "nmidworker/agent.h"
+#include "nmidworker/rw.h"
+#include "nmidworker/function.h"
+#include "nmidworker/util.h"
+#include "nmidworker/array.h"

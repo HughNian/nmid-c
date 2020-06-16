@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libnmidworker.so.1 -o libnmidworker.so.1.2 CMakeFiles/nmidworker.dir/agent.o CMakeFiles/nmidworker.dir/array.o CMakeFiles/nmidworker.dir/function.o CMakeFiles/nmidworker.dir/rw.o CMakeFiles/nmidworker.dir/util.o CMakeFiles/nmidworker.dir/worker.o -lpthread -lev -lmsgpackc -lpthread -lev -lmsgpackc 
