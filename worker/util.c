@@ -79,19 +79,24 @@ SubStrLastVal(char *last)
     assert(last);
 
     char *val;
-    int len = strlen(last)-2;
-    if(len < 2) {
+
+    if(strstr(last, "]")) {
+        int len = strlen(last)-2;
+        if(len < 2) {
+            val = strdup(last);
+            return val;
+        }
+
+        val = (char *)malloc(len+1);
+        memset(val, 0, len+1);
+
+        strncpy(val, last, len);
+        val[len] = '\0';
+        return val;
+    } else {
         val = strdup(last);
         return val;
     }
-
-    val = (char *)malloc(len+1);
-    memset(val, 0, len+1);
-
-    strncpy(val, last, len);
-    val[len] = '\0';
-
-    return val;
 }
 
 char *
