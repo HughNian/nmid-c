@@ -370,7 +370,8 @@ ReadNmidRes(Response *Res)
             }
             perror("read error!");
             Close(Res->a);
-            return 0;
+	    //return 0;
+	    exit(1); //这里如果nmid服务端退出了，作为worker端则正常退出。//todo 后面打算做成每隔半小时尝试重连
         } else {
             Res->rdata->rbytes = readNum;
 
