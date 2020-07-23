@@ -174,6 +174,6 @@ Work(Worker *w)
     }
 
     for(;;) {
-        sleep(0);
+        sleep(1);
     }
 }
