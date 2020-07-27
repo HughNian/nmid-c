@@ -54,6 +54,7 @@ cd nmid-c/build/client
 cmake ../../client
 make
 make install
+需要把安装到/usr/local/lib中的动态库ln -s到/usr/lib64中
 
 3.worker可执行文件
 cd nmid-c/run/worker
@@ -65,6 +66,7 @@ cd nmid-c/build/worker
 cmake ../../worker
 make
 make install
+需要把安装到/usr/local/lib中的动态库ln -s到/usr/lib64中
 
 ```
 
