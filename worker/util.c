@@ -123,9 +123,10 @@ ReqMsgPackEncode(RetStruct *ret, size_t *ret_size, msgpack_sbuffer *sbuf)
 char *
 ResMsgPackDecode(const char *packbuf, size_t pack_len)
 {
-    int i = 0;
+    int i, ii = 0;
     size_t off = 0;
     char *tmp_buf;
+    char **buf_arr;
     char *unpack_buf = (char *)malloc(pack_len*2);
 
     msgpack_unpacked result;
@@ -133,23 +134,72 @@ ResMsgPackDecode(const char *packbuf, size_t pack_len)
     msgpack_unpacked_init(&result);
 
     ret = msgpack_unpack_next(&result, packbuf, pack_len, &off);
-    while(ret == MSGPACK_UNPACK_SUCCESS) {
-        msgpack_object obj = result.data;
+    msgpack_object obj = result.data;
 
-        msgpack_object_print_buffer(unpack_buf, pack_len*2, obj);
-        if(strstr(unpack_buf, ":") == NULL) break;
-        tmp_buf = strdup(unpack_buf);
+    if(obj.type == MSGPACK_OBJECT_ARRAY) {
+        int arr_size = obj.via.array.size;
+        printf("size11 - %d\n", arr_size);
+        buf_arr = make_new(char *, arr_size);
 
-        ret = msgpack_unpack_next(&result, packbuf, pack_len, &off);
+        while(ret == MSGPACK_UNPACK_SUCCESS) {
+            msgpack_object obj = result.data;
 
-        i++;
+            msgpack_object_print_buffer(unpack_buf, pack_len*2, obj);
+            if(strstr(unpack_buf, ":") == NULL) break;
+            tmp_buf = strdup(unpack_buf);
+
+            ret = msgpack_unpack_next(&result, packbuf, pack_len, &off);
+
+            i++;
+        }
+
+        for(; ii < arr_size; ii++) {
+            printf("type22 - %d\n", obj.via.array.ptr[ii].type);
+            if(obj.via.array.ptr[i].type == MSGPACK_OBJECT_STR) {
+                printf("ii - %d\n", ii);
+                buf_arr[ii] = strdup(obj.via.array.ptr[ii].via.str.ptr);
+            }
+        }
     }
 
     msgpack_unpacked_destroy(&result);
     free(unpack_buf);
 
     printf("tmp_buf - %s\n", tmp_buf);
+    printf("buf_arr 0 - %s\n", buf_arr[0]);
     return tmp_buf;
+}
+
+char **
+ResMsgPackArrDecode(const char *packbuf, size_t pack_len)
+{
+    int i = 0;
+    size_t off = 0;
+    char *tmp_buf;
+    char *unpack_buf = (char *)malloc(pack_len*2);
+
+    msgpack_unpacked result2;
+    msgpack_unpack_return ret2;
+    msgpack_unpacked_init(&result2);
+
+    ret2 = msgpack_unpack_next(&result2, packbuf, pack_len, &off);
+    while(ret2 == MSGPACK_UNPACK_SUCCESS) {
+        msgpack_object obj = result2.data;
+        printf("type22 - %d\n", obj.type);
+        msgpack_object_print_buffer(unpack_buf, pack_len*2, obj);
+        tmp_buf = strdup(unpack_buf);
+
+        ret2 = msgpack_unpack_next(&result2, packbuf, pack_len, &off);
+
+        i++;
+    }
+
+    msgpack_unpacked_destroy(&result2);
+    free(unpack_buf);
+
+    printf("tmp_buf222 - %s\n", tmp_buf);
+
+    return NULL;
 }
 
 int

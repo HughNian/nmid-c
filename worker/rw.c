@@ -271,6 +271,7 @@ DecodePack(Response *Res)
         return 0;
     }
 
+    ResMsgPackArrDecode(Res->params, Res->paramsNum);
     char *unpack_buf = ResMsgPackDecode(Res->params, Res->paramsLen);
 
     uint32_t paramsNum = GetParamsNum(unpack_buf);

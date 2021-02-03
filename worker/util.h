@@ -10,6 +10,8 @@ void SetNonBlock(int fd);
 
 char *ResMsgPackDecode(const char *packbuf, size_t pack_len);
 
+char **ResMsgPackArrDecode(const char *packbuf, size_t pack_len);
+
 int GetParamsNum(const char *params);
 
 char **GetParamsArr(const char *params, int arr_num);
